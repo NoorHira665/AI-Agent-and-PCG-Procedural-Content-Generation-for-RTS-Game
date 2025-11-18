@@ -1,0 +1,59 @@
+<Selector>
+    <Sequence>
+        <Condition type="BaseExists" value="false"/>
+        <Condition type="EnoughResources" value="base"/>
+        <Condition type="IdleWorkers" value="1"/>
+        <Action type="BuildBase"/>
+    </Sequence>
+
+    <Sequence>
+        <Condition type="BarracksExists" value="false"/>
+        <Condition type="EnoughResources" value="barracks"/>
+        <Condition type="IdleWorkers" value="1"/>
+        <Action type="BuildBarracks"/>
+    </Sequence>
+
+    <Sequence>
+        <Condition type="BaseExists" value="true"/>
+        <Condition type="WorkersLessThanEqualTo" value="1"/>
+        <Condition type="BaseIdle"/>
+        <Condition type="EnoughResources" value="peasant"/>
+        <Action type="TrainWorker"/>
+    </Sequence>
+
+    <Sequence>
+        <Condition type="WorkersEqualTo" value="1"/>
+        <Condition type="IdleWorkers" value="1"/>
+        <Action type="GatherGold"/>
+    </Sequence>
+
+
+    <Sequence>
+        <Condition type="BarracksExists" value="true"/>
+        <Condition type="BarracksIdle"/>
+        <Condition type="EnoughResources" value="footman"/>
+        <Action type="TrainFootman"/>
+    </Sequence>
+
+    <Sequence>
+        <Condition type="WorkersEqualTo" value="2"/>
+        <Condition type="IdleWorkers" value="1"/>
+        <Action type="GatherWood"/>
+    </Sequence>
+
+    <Selector>
+        <Sequence>
+            <Condition type="EnemyAttacking"/>
+            <Condition type="IdleSoldiers" value="all"/>
+            <Action type="AttackEnemy"/>
+        </Sequence>
+
+
+        <Sequence>
+            <Condition type="IdleSoldiers" value="6"/>
+            <Action type="AttackNearestEnemyUnit" value="4"/>
+        </Sequence>
+    </Selector>
+
+
+</Selector>
